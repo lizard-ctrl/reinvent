@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❥ ❥ ❥ ❥ REINVENTION STARTS HERE </title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #image-container img { max-width: 80%; height: auto; }
+        #buttons { margin-top: 10px; }
+        button { padding: 10px 20px; margin: 5px; font-size: 18px; }
+        #result { display: none; }
+        .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .grid img { width: 100px; height: auto; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+    <div id="welcome">
+       <div id="info">
+        <div id="start" onclick="startQuizYay()">BE A NEW YOU?
+            <div id="wingding-loader"></div>
+        </div>
+      
+    </div>
+    </div>
+
+    <div id="app" style="display: none;">
+        <div id="questions">
+        <div id="image-container">
+            <img id="current-image" src="" alt="Image">
+        </div>
+        <div id="buttons">
+            <button onclick="vote(true)">KEEP</button>
+            <button onclick="vote(false)">ARCHIVE</button>
+        </div>
+    </div>
+        <div id="result">
+            <h2 style="display: none;">You got mostly: <span id="top-tag"></span></h2>
+            <div class="grid" id="selected-images"></div>
+           
+                <!-- Unique divs for each result type -->
+                <div id="result-A" class="result-box" >
+                    
+                </div>
+                <div id="result-B" class="result-box" >
+                   
+                </div>
+                <div id="result-C" class="result-box" >
+                  
+                </div>
+            
+        </div>
+
+        <div id="wingding-container"></div>
+
+            <!-- Button to toggle rejected images -->
+           
+            <!-- Hidden rejected images section -->
+            <div id="rejected-section" style="display: none;">
+                
+                <div class="grid" id="rejected-images"></div>
+            </div>
+
+            <h2 id="toggle-rejected" onclick="toggleRejected()" style="display: none;">ARCHIVE</h2>
+        
+        
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
