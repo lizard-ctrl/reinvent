@@ -151,6 +151,7 @@ function vote(yes) {
     }
     index++;
     loadImage();
+    repositionWingdings()
 }
 
 
@@ -234,6 +235,7 @@ function toggleRejected() {
     const toggleButton = document.getElementById("toggle-rejected");
     const body = document.body; 
     const grid = rejectedImagesContainer; 
+    const wingdings = document.querySelectorAll(".wingding");
 
     if (rejectedSection.style.display === "none") {
     
@@ -263,6 +265,10 @@ function toggleRejected() {
             grid.appendChild(imgElement);
         }
 
+        wingdings.forEach(wingding => {
+            wingding.style.color = "red";
+        });
+
         setTimeout(randomizePositions, 100);
     } else {
       
@@ -274,6 +280,10 @@ function toggleRejected() {
         body.style.backgroundColor = ""; 
         body.style.backgroundImage = ""; 
         body.style.color = ""; 
+
+        wingdings.forEach(wingding => {
+            wingding.style.color = "";
+        });
     }
 }
 
