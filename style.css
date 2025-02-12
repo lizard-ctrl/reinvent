@@ -124,6 +124,22 @@ button {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+#rejected-sentence{
+    top: 10%;
+    z-index: 1000;
+    font-size: 600%;
+    position: absolute;
+    
+    font-weight: bold;
+    color: rgb(255, 0, 0); 
+    color: black; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 25px rgb(255, 0, 0);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
 
 
 #result { 
@@ -166,7 +182,7 @@ button {
     right: 5%;
     font-size: 200%;
     color: black;/* Base text color */
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255);
 }
 
 #toggle-rejected:hover{
@@ -298,12 +314,32 @@ button {
         animation: fadeIn 0.5s ease-in-out;
     }
 
+    #rejected-sentence {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: clamp(5vw, 13vh, 13vw); /* Adjusts dynamically */
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 1000;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+
 
     #toggle-rejected
 {
     position: fixed;
     bottom: 1%;
     left: 0%;
+    z-index: 1000;
    
 
 }

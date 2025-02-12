@@ -77,6 +77,7 @@ const topTagElement = document.getElementById("top-tag");
 const rejectedSection = document.getElementById("rejected-section");
 const app = document.getElementById("app");
 const welcome = document.getElementById("welcome");
+const rejectedSentence = document.getElementById("rejected-sentence");
 
 function startQuizYay(){
     forceCSSReload();
@@ -181,6 +182,12 @@ function generateResultSentence(topTag) {
     return `The new you is ${words} core.`;
 }
 
+function generateRejectedSentence() {
+    let sortedTags = Object.keys(tagCount).sort((a, b) => tagCount[a] - tagCount[b]);
+    let bottomTags = sortedTags.slice(0, 2);
+    let words = bottomTags.map(tag => getRandomWords(tag === "A" ? wordsA : tag === "B" ? wordsB : wordsC)).join(" and ");
+    return `You dream of ${words}.`;
+}
 
 function showResults() {
     forceCSSReload(); // Ensure CSS reloads before displaying results
@@ -217,6 +224,7 @@ function showResults() {
 
     if (rejections.length > 0) {
         document.getElementById("toggle-rejected").style.display = "block";
+        rejectedSentence.textContent = generateRejectedSentence();
     }
 }
 
