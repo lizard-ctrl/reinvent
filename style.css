@@ -301,8 +301,8 @@ button {
 
     #toggle-rejected
 {
-    position: absolute;
-    top: 90%;
+    position: fixed;
+    bottom: 1%;
     left: 0%;
    
 
