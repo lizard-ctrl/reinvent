@@ -272,26 +272,31 @@ button {
     }
 
     .result-box p:last-child {
-        top: 2%;
-        z-index: 1000;
-        font-size: 500%;
         position: absolute;
-        
-        font-weight: bold;
-        color: white; 
-        text-transform: uppercase;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        margin-top: 10px;
+        font-size: clamp(5vw, 15vh, 15vw); /* Adjusts dynamically */
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        z-index: 1000;
         animation: fadeIn 0.5s ease-in-out;
     }
+
 
     #toggle-rejected
 {
     position: absolute;
     top: 90%;
     left: 0%;
-    font-size: 200%;
-    color: white;
+   
 }
 
 }
