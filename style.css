@@ -39,6 +39,8 @@ body {
 
 #start{
     font-family: 'Fantome-Regular'; 
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
     outline: none;
     background-color: none;
     font-size: 200%;
@@ -225,6 +227,7 @@ button {
 
     #start{
         font-family: 'Fantome-Regular'; 
+      
         outline: none;
         background-color: none;
         font-size: 150%;
