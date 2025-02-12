@@ -1,3 +1,13 @@
+function forceCSSReload() {
+    let link = document.querySelector('link[rel="stylesheet"]');
+    let newLink = document.createElement("link");
+    newLink.rel = "stylesheet";
+    newLink.href = link.href.split("?")[0] + "?v=" + new Date().getTime();
+    document.head.appendChild(newLink);
+    setTimeout(() => {
+        link.remove(); // Remove old CSS after new one loads
+    }, 50);
+}
 
 
 const images = [
@@ -47,6 +57,9 @@ const images = [
     { src: "imgs/c15.png", tag: "C" }
 ];
 
+// Force CSS to reapply after changing the DOM
+
+
 
 
 images.sort(() => Math.random() - 0.5);
@@ -66,6 +79,7 @@ const app = document.getElementById("app");
 const welcome = document.getElementById("welcome");
 
 function startQuizYay(){
+    forceCSSReload();
     app.style.display = "block";
     welcome.style.display = "none";
 }
@@ -168,44 +182,44 @@ function generateResultSentence(topTag) {
 
 
 function showResults() {
+    forceCSSReload(); // Ensure CSS reloads before displaying results
+
     document.getElementById("image-container").style.display = "none";
     document.getElementById("buttons").style.display = "none";
-    resultSection.style.display = "block";
+
+    // Small delay to ensure reflow before showing results
+    setTimeout(() => {
+        resultSection.style.display = "block";
+    }, 50);
 
     let topTag = Object.keys(tagCount).reduce((a, b) => tagCount[a] > tagCount[b] ? a : b);
     topTagElement.textContent = topTag;
 
-   
-    selectedImagesContainer.innerHTML = "";
+    selectedImagesContainer.innerHTML = ""; 
 
-   
     selections.forEach(img => {
         let imgElement = document.createElement("img");
         imgElement.src = img.src;
         selectedImagesContainer.appendChild(imgElement);
     });
 
-
     let resultSentence = generateResultSentence(topTag);
-
-    
     let resultBox = document.getElementById(`result-${topTag}`);
-    
- 
+
     let sentenceElement = document.createElement("p");
     sentenceElement.textContent = resultSentence;
     resultBox.appendChild(sentenceElement);
 
-    
     document.getElementById("result-A").style.display = topTag === "A" ? "block" : "none";
     document.getElementById("result-B").style.display = topTag === "B" ? "block" : "none";
     document.getElementById("result-C").style.display = topTag === "C" ? "block" : "none";
 
-   
     if (rejections.length > 0) {
         document.getElementById("toggle-rejected").style.display = "block";
     }
 }
+
+
 
 
 const externalImages = [

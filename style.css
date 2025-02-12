@@ -32,7 +32,7 @@ body {
 
 @keyframes fadeColors {
     0% { background-color: #e04ce2; } 
-    50% { background-color: #a6f6f6; }
+    50% { background-color: #ffffff; }
     100% { background-color: #e04ce2; } 
 }
 
@@ -75,12 +75,16 @@ body {
     top: 80%;
     left: 32%;
     margin-top: 10px; 
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
    }
 
 button { 
     font-family: 'Fantome-Regular'; 
     border: none;
-    background-color: aliceblue;
+   background-color: transparent;
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
     opacity: 90%;
     border-radius: 50%;
    padding: 10px 20px; 
@@ -110,6 +114,8 @@ button {
     
     font-weight: bold;
     color: white; 
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
     text-transform: uppercase;
     text-align: center;
     margin-top: 10px;
@@ -157,11 +163,12 @@ button {
     top: 90%;
     right: 5%;
     font-size: 200%;
-    color: white;
+    color: black;/* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
 }
 
 #toggle-rejected:hover{
-    color: darkmagenta;
+    color: white;
     transition: 2s ease;
 }
 
@@ -185,4 +192,103 @@ button {
     font-size: 40px;
     color: white;
     transition: transform 0.5s ease-in-out, top 0.5s ease-in-out, left 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    #welcome{
+        background-image: none;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        height: 80%;
+        width:60%;
+    }
+
+    #info{
+        position: absolute;
+        animation: fadeColors 6s infinite alternate; /* Loops back and forth */
+        transition: background-color 3s ease-in-out;
+        top: 20%;
+        left: 20%;
+        width: 100%;
+        height: 40%;
+        border-radius: 50%;
+    }
+    
+    #info:hover{
+        color: white;
+        border-radius: 5% ;
+        transition: border-radius 2s ease-in-out;
+    }
+
+    #start{
+        font-family: 'Fantome-Regular'; 
+        outline: none;
+        background-color: none;
+        font-size: 150%;
+        position: relative;
+        top: 40%;
+    }
+
+    #image-container {
+        position: absolute;
+        top: 5%;
+        left:0%;
+        width: 100%;
+        height: 70%;
+        background-color: rgba(255, 105, 180);
+        border-radius: 50%;
+        box-shadow: 0px 0px 15px 15px rgb(255, 105, 180);
+        overflow: hidden; /* Ensures no image overflow */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #buttons {
+        font-family: 'Fantome-Regular'; 
+        position: absolute;
+        top: 80%;
+        left: 0%;
+        margin-top: 10px; 
+       }
+
+       .grid { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px;
+     }
+    
+    .grid img { 
+        width: 70px; 
+        height: auto; 
+        border: none;
+    }
+
+    .result-box p:last-child {
+        top: 2%;
+        z-index: 1000;
+        font-size: 500%;
+        position: absolute;
+        
+        font-weight: bold;
+        color: white; 
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    #toggle-rejected
+{
+    position: absolute;
+    top: 90%;
+    left: 0%;
+    font-size: 200%;
+    color: white;
+}
+
 }
