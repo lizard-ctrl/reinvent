@@ -197,6 +197,14 @@ button {
 }
 
 @media screen and (max-width: 768px) {
+    body { 
+        font-family: 'Fantome-Regular'; 
+        background-image: url(imgs/giphy.gif);
+        background-size: cover;
+        background-repeat: repeat;
+        background-color: #1F1821;
+    }
+
     #welcome{
         background-image: none;
         background-size: contain;
@@ -282,7 +290,7 @@ button {
         align-items: center;
         justify-content: center;
         text-align: center;
-        font-size: clamp(5vw, 15vh, 15vw); /* Adjusts dynamically */
+        font-size: clamp(5vw, 20vh, 20vw); /* Adjusts dynamically */
         font-weight: bold;
         color: white;
         text-transform: uppercase;
@@ -297,6 +305,7 @@ button {
     top: 90%;
     left: 0%;
    
+
 }
 
 }
