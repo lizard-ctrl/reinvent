@@ -4,6 +4,10 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: "FontOne";
+    src: url("fonts/one.otf") format("opentype");
+  }
 
 body { 
     font-family: 'Fantome-Regular'; 
@@ -13,15 +17,121 @@ body {
     background-color: #1F1821;
 }
 
+#left-div, #right-div {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    overflow-y: auto;  /* Allow scrolling if necessary */
+    padding: 20px;
+}
+
+#left-div {
+    left: 0;
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+     /* Example styling */
+}
+
+#right-div {
+    right: 0;
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+      /* Example styling */
+}
+
+#left-div2, #right-div2 {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    overflow-y: auto;  /* Allow scrolling if necessary */
+    padding: 20px;
+}
+
+#left-div2 {
+    left: 0;
+    background-color: rgb(7, 152, 242, .3);
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+     /* Example styling */
+}
+
+#right-div2 {
+    background-color: rgb(7, 152, 242, .5);
+    right: 0;
+    color: white; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+      /* Example styling */
+}
+
+.sentence {
+    margin-bottom: 10px;
+    
+    word-wrap: break-word;
+    padding-bottom: 5px;
+}
+
+.line {
+    border-bottom: 2px solid white;
+    margin-bottom: 5px;
+}
+
 #info{
+   
     position: absolute;
-    animation: fadeColors 6s infinite alternate; /* Loops back and forth */
-    transition: background-color 3s ease-in-out;
-    top: 10%;
+    font-family: "FontOne";
+    top: 5%;
     left: 20%;
-    width: 40%;
-    height: 30%;
-    border-radius: 50%;
+    width: 60%;
+    height: 100%;
+    border-radius: 0;
+}
+
+
+.info-container {
+    position: relative;  /* Required for absolute positioning */
+    width: 100%;
+    height: 100vh;  /* Or specific height depending on your layout */
+    overflow: hidden;  /* Hide any wingdings that overflow outside the container */
+    
+}
+
+.info-wingding {
+    position: absolute;  /* Required for random positioning */
+    font-family: 'Wingdings', sans-serif;  /* Use Wingdings font or any font you prefer */
+}
+
+#magTitle{
+    position: relative;
+    font-family: 'Fantome-Regular';
+    color: #f09; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(0,0,0), 0 0 20px rgb(0,0,0), 0 0 25px rgb(0,0,0);
+    font-size: 600%;
+    top: 5%;
+}
+
+#random-sentences{
+    position: absolute;
+    
+    height: 100vh;
+    width: 100vw;
+  
+    z-index: 1000;
+    font-family: 'Fantome-Regular'; 
+    word-wrap: break-word;
+    overflow: hidden;
+    
+    font-weight: bold;
+    color: rgb(255, 0, 0); 
+    color: black; /* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 25px rgb(255, 0, 0);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 #info:hover{
@@ -38,15 +148,34 @@ body {
 
 
 #start{
-    font-family: 'Fantome-Regular'; 
-    color: white; /* Base text color */
+    font-family: "FontOne";
+    animation: fadeColor 10s infinite; /* 3 seconds to complete one cycle, infinitely repeating */
+  transition: color 0.5s ease;
+  transition: font-size 0.5s ease; /* Base text color */
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
     outline: none;
     background-color: none;
-    font-size: 200%;
+    font-size: 400%;
     position: relative;
-    top: 30%;
+    top: 10%;
+   
 }
+
+#start:hover{
+    font-size: 450%;
+}
+
+@keyframes fadeColor {
+    0% {
+      color: white; /* Initial color */
+    }
+    50% {
+      color: black; /* Middle color */
+    }
+    100% {
+      color: white; /* Final color */
+    }
+  }
 
 #questions{
     position: absolute;
@@ -125,6 +254,7 @@ button {
 }
 
 #rejected-sentence{
+    display: none;
     top: 10%;
     z-index: 1000;
     font-size: 600%;
@@ -151,15 +281,20 @@ button {
     color: white;
 }
 
+#start{
+    z-index: 1000;;
+}
 #welcome{
-    background-image: url("imgs/comp.png");
-    background-size: contain;
+   z-index: 999;
+   background-image: url(hpassets/cvr2.png);
+    background-size: cover;
+    cursor: url('hpassets/2.png'), auto;
     background-repeat: no-repeat;
     position: absolute;
-    top: 5%;
-    left: 5%;
-    height: 80%;
-    width:60%;
+    top: -5%;
+    left: 10%;
+    height: 100%;
+    width:80%;
 }
 
 .grid { 
@@ -239,6 +374,7 @@ button {
         top: 20%;
         left: 20%;
         width: 100%;
+        
         height: 40%;
         border-radius: 50%;
     }

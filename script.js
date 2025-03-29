@@ -10,6 +10,130 @@ function forceCSSReload() {
 }
 
 
+const firstHalfSentences = [
+    "800 Shocking Tips to",
+    "80 Best Ways to",
+    "Spilling All the Secrets to",
+    "How to",
+    "100 Mind Blowing Ideas to",
+    "The Sexy Guide to",
+    "Top 5 Destinations You Must Be",
+    "7 Secrets of",
+    "1,000,000 Secrets to",
+    "A Beginner’s Guide to"
+];
+
+const secondHalfSentences = [
+    "Dropping 40 Pants Sizes",
+    "Crying and Doomscrolling",
+    "Get Your Toxic Ex Back",
+    "Achieve the Perfect Instagram",
+    "Get Your 15 Minutes of Fame on Tiktok",
+    "Facetuning your Friends",
+    "Facetuning your Life",
+    "Curating your Life",
+    "Spending more time Online",
+    "Increasing your Screentime",
+    "Decoding his Instagram",
+    "Decoding his Spotify Listens",
+    "Analyze your ex's Instagram",
+    "Tweeting your way to the top",
+    "Being Offputting on Tinder",
+    "Being Mysterious and Weird on Hinge",
+    "Achieving Cottagecore",
+    "Achieving Dark Academia",
+    "Achieving CoreCore",
+    "Understanding CoreCore",
+    "Keep up with Every Trend!!"
+];
+
+function generateRandomSentences() {
+    let sentences = [];
+    for (let i = 0; i < 20; i++) {
+        let firstHalf = firstHalfSentences[Math.floor(Math.random() * firstHalfSentences.length)];
+        let secondHalf = secondHalfSentences[Math.floor(Math.random() * secondHalfSentences.length)];
+        sentences.push(`${firstHalf} ${secondHalf}`);
+    }
+    return sentences;
+}
+
+function appendSentencesToDiv(divId) {
+    let sentences = generateRandomSentences();
+    let div = document.getElementById(divId);
+
+    sentences.forEach(sentence => {
+       
+        let sentenceElement = document.createElement("div");
+        sentenceElement.classList.add("sentence");
+        sentenceElement.textContent = sentence;
+
+    
+        let randomFontSize = Math.floor(Math.random() * (50 - 12 + 1)) + 12;
+        sentenceElement.style.fontSize = `${randomFontSize}px`;
+
+    
+        let line = document.createElement("div");
+        line.classList.add("line");
+
+        
+        div.appendChild(sentenceElement);
+        div.appendChild(line);
+    });
+}
+
+appendSentencesToDiv("left-div");
+appendSentencesToDiv("right-div");
+
+
+
+const infoWingdingContainers = document.querySelectorAll(".info-container"); 
+const infoWingdingCharacters = ['✦', '✧', '★', '☆', '♡', '❥']; 
+const wingdingColors = ['#2ef1ff', '#6A5ACD', '#f207cb']; 
+const infoWingdingCount = 10; 
+
+
+function createInfoWingdings() {
+    infoWingdingContainers.forEach(container => {
+        const infoWingdingElements = [];
+        
+        for (let i = 0; i < infoWingdingCount; i++) {
+            const wingding = document.createElement("div");
+            wingding.classList.add("info-wingding");
+            wingding.textContent = infoWingdingCharacters[Math.floor(Math.random() * infoWingdingCharacters.length)];
+
+            
+            const randomFontSize = Math.floor(Math.random() * 200) + 12;  
+            wingding.style.fontSize = `${randomFontSize}px`;
+
+            
+            const randomColor = wingdingColors[Math.floor(Math.random() * wingdingColors.length)];
+            wingding.style.color = randomColor;
+
+            container.appendChild(wingding);
+            infoWingdingElements.push(wingding);
+        }
+
+        repositionInfoWingdings(container, infoWingdingElements); 
+    });
+}
+
+
+function repositionInfoWingdings(container, wingdingElements) {
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
+    wingdingElements.forEach(wingding => {
+        const randomX = Math.random() * (containerWidth - 50); 
+        const randomY = Math.random() * (containerHeight - 50); 
+
+        wingding.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    });
+}
+
+createInfoWingdings();
+
+
+
 const images = [
     { src: "imgs/a1.png", tag: "A" },
     { src: "imgs/a2.png", tag: "A" },
@@ -55,9 +179,11 @@ const images = [
     { src: "imgs/c13.png", tag: "C" },
     { src: "imgs/c14.png", tag: "C" },
     { src: "imgs/c15.png", tag: "C" }
+
+    
 ];
 
-// Force CSS to reapply after changing the DOM
+
 
 
 
@@ -179,23 +305,23 @@ function generateResultSentence(topTag) {
     else if (topTag === "B") words = getRandomWords(wordsB);
     else if (topTag === "C") words = getRandomWords(wordsC);
     
-    return `The new you is ${words} core.`;
+    return `You Are ${words} core.`;
 }
 
 function generateRejectedSentence() {
     let sortedTags = Object.keys(tagCount).sort((a, b) => tagCount[a] - tagCount[b]);
     let bottomTags = sortedTags.slice(0, 2);
     let words = bottomTags.map(tag => getRandomWords(tag === "A" ? wordsA : tag === "B" ? wordsB : wordsC)).join(" and ");
-    return `You dream of ${words}.`;
+    return `You have hidden ${words}.`;
 }
 
 function showResults() {
-    forceCSSReload(); // Ensure CSS reloads before displaying results
+    forceCSSReload(); 
 
     document.getElementById("image-container").style.display = "none";
     document.getElementById("buttons").style.display = "none";
 
-    // Small delay to ensure reflow before showing results
+    
     setTimeout(() => {
         resultSection.style.display = "block";
     }, 50);
@@ -225,8 +351,82 @@ function showResults() {
     if (rejections.length > 0) {
         document.getElementById("toggle-rejected").style.display = "block";
         rejectedSentence.textContent = generateRejectedSentence();
+        startRandomTyping(generateRejectedSentence());
+        console.log('heyy');
+    }
+
+    // Check if #rejected-section is visible before starting typing
+    if (window.getComputedStyle(document.getElementById("rejected-section")).display === "block") {
+        console.log('comeon');
+        startRandomTyping(generateRejectedSentence());
     }
 }
+
+// Function to start typing rejected sentence in random positions within #random-sentences
+function startRandomTyping(sentence) {
+    function typeOutRandom(text, delay = 50) {
+        let rejectedContainer = document.getElementById("random-sentences");
+        let containerWidth = rejectedContainer.clientWidth;
+        let containerHeight = rejectedContainer.clientHeight;
+
+        // Create a temporary element to calculate text width and height
+        let tempElement = document.createElement("div");
+        tempElement.style.position = "absolute";
+        tempElement.style.visibility = "hidden";
+        tempElement.style.fontSize = "16px"; // Default font size
+        tempElement.style.whiteSpace = "normal";
+        tempElement.style.wordWrap = "break-word";
+        tempElement.textContent = text;
+        rejectedContainer.appendChild(tempElement);
+
+        // Calculate the text element's width and height
+        let textWidth = tempElement.offsetWidth;
+        let textHeight = tempElement.offsetHeight;
+
+        // Remove the temporary element after calculating size
+        rejectedContainer.removeChild(tempElement);
+
+        // Generate random position within #random-sentences boundaries
+        let randomX = Math.random() * (containerWidth - 800); // Ensure element stays within container
+        let randomY = Math.random() * (containerHeight - textHeight); // Ensure element stays within container
+        let randomFontSize = Math.floor(Math.random() * 36) + 6; // Font size between 12px and 48px
+
+        let rejectedElement = document.createElement("div");
+        rejectedElement.style.position = "absolute";
+        rejectedElement.style.left = `${randomX}px`;
+        rejectedElement.style.top = `${randomY}px`;
+        rejectedElement.style.fontSize = `${randomFontSize}px`;
+        rejectedElement.style.whiteSpace = "normal"; // Allow text to wrap
+        rejectedElement.style.wordWrap = "break-word"; // Wrap words if necessary
+        rejectedElement.style.maxWidth = `${containerWidth - randomX - 20}px`; // Ensure it fits within container
+        rejectedElement.style.color = "black"; // Optional: You can style the text color
+        rejectedElement.style.padding = "5px";
+        rejectedElement.style.borderRadius = "4px";
+        
+        // Append to #random-sentences instead of document.body
+        rejectedContainer.appendChild(rejectedElement);
+
+        let i = 0;
+        function typeCharacter() {
+            if (i < text.length) {
+                rejectedElement.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeCharacter, delay);
+            } else {
+                // Start typing another version after a slight delay
+                setTimeout(() => {
+                    startRandomTyping(generateRejectedSentence());
+                }, 1000);
+            }
+        }
+        typeCharacter();
+    }
+
+    typeOutRandom(sentence);
+}
+
+
+
 
 
 

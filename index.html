@@ -19,12 +19,22 @@
 <body>
 
     <div id="welcome">
+        <div id="left-div"></div>
+<div id="right-div"></div>
+<div id="left-div2"><div class="info-container"></div></div>
+<div id="right-div2"><div class="info-container"></div></div>
+
+
        <div id="info">
-        <div id="start" onclick="startQuizYay()">BE A NEW YOU?
+        <div id="magTitle">TROPHY STAR MAG</div>
+        <div id="start" onclick="startQuizYay()">
+            WHAT DOES YOUR IMAGINARY FEED SAY ABOUT YOU
             <div id="wingding-loader"></div>
+            
         </div>
       
     </div>
+   
     </div>
 
     <div id="app" style="display: none;">
@@ -33,7 +43,7 @@
             <img id="current-image" src="" alt="Image">
         </div>
         <div id="buttons">
-            <button onclick="vote(true)">KEEP</button>
+            <button onclick="vote(true)">POST</button>
             <button onclick="vote(false)">ARCHIVE</button>
         </div>
     </div>
@@ -61,6 +71,7 @@
             <!-- Hidden rejected images section -->
             <div id="rejected-section" style="display: none;">
                 <p id="rejected-sentence"></p>
+                <div id="random-sentences"></div>
                 <div class="grid" id="rejected-images"></div>
             </div>
 
