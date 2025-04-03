@@ -161,9 +161,56 @@ body {
    
 }
 
-#start:hover{
-    font-size: 450%;
-}
+.GeneratedMarquee {
+    font-size:50%;
+    line-height:50%;
+    color:#996600;
+    background-color:#FFFFCC;
+    padding:2%;
+    }
+
+    #scroll1{
+        color:#0a0099;
+    background-color:#7a121c;
+    }
+
+   
+
+    #scroll2{
+        font-size:60%;
+        color:#990094;
+    background-color:#127a29;
+    }
+
+    #scroll3{
+        font-size:20%;
+        color:#994a00;
+    background-color:#7a121c;
+    }
+
+    #scroll4{
+        font-size:50%;
+        color:#009978;
+    background-color:#af797f;
+    }
+
+    #scroll5{
+        font-size:40%;
+        color:#669900;
+    background-color:#5f24be;
+    }
+
+    #scroll6{
+        font-size:60%;
+        color:#eb9d37;
+    background-color:#00ffe5;
+    }
+
+    #scroll7{
+        font-size:30%;
+        color:#5beb37;
+    background-color:#9dff00;
+    }
 
 @keyframes fadeColor {
     0% {
@@ -185,9 +232,14 @@ body {
     height: 90%;
 }
 
+#questionText{
+    color: black;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+}
+
 #image-container {
     position: absolute;
-    top: 5%;
+    top: 15%;
     left:25%;
     width: 50%;
     height: 70%;
@@ -203,8 +255,8 @@ body {
 #buttons {
     font-family: 'Fantome-Regular'; 
     position: absolute;
-    top: 80%;
-    left: 32%;
+    top: 90%;
+    left: 33%;
     margin-top: 10px; 
     color: white; /* Base text color */
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
@@ -238,14 +290,13 @@ button {
 }
 
 .result-box p:last-child {
-    top: 2%;
+    top: 25%;
     z-index: 1000;
-    font-size: 900%;
+    font-size: 300%;
     position: absolute;
     
     font-weight: bold;
-    color: white; 
-    color: white; /* Base text color */
+    color: black; /* Base text color */
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
     text-transform: uppercase;
     text-align: center;
@@ -324,6 +375,23 @@ button {
     color: white;
     transition: 2s ease;
 }
+
+#reload
+{
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    font-size: 200%;
+    color: black;/* Base text color */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(255, 255, 255), 0 0 20px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255);
+}
+
+#reload:hover{
+    color: white;
+    transition: 2s ease;
+}
+
+
 
 #app{
     display: none;

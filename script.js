@@ -184,7 +184,41 @@ const images = [
 ];
 
 
+const textOptions = [
+    "Your ex is looking at your account",
+    "Your Mom is looking at your account",
+    "Your fifth Cousin is looking at your account",
+    "Your crush is looking at your account",
+    "You are looking at your account",
+    "Your boss is looking at your account",
+    "Your teacher is looking at your account",
+    "Your friend is looking at your account",
+    "Your childhood friend is looking at your account",
+    "Your first love is looking at your account",
+    "Someone from your past is looking at your account",
+    "A random stranger is looking at your account",
+    "Your ex’s new partner is looking at your account",
+    "Someone’s parents are looking at your account",
+    "Your favorite celebrity is looking at your account",
+    "Your neighbor is looking at your account",
+    "Your dentist is looking at your account",
+    "Your mailman is looking at your account",
+    "Your best friend is looking at your account",
+    "An AI is is looking at your account",
+    "Your favorite barista is looking at your account",
+    "Your first-grade teacher is looking at your account",
+    "Your childhood pet is looking at your account",
+    "Your secret admirer is looking at your account",
+    "A distant relative is looking at your account",
+    "Someone in another country is looking at your account",
+    "Your younger self is looking at your account",
+    "A psychic is looking at your account"
+];
 
+function changeText() {
+    let randomIndex = Math.floor(Math.random() * textOptions.length);
+    document.getElementById("questionText").innerText = textOptions[randomIndex];
+}
 
 
 
@@ -207,6 +241,7 @@ const rejectedSentence = document.getElementById("rejected-sentence");
 
 function startQuizYay(){
     forceCSSReload();
+    changeText();
     app.style.display = "block";
     welcome.style.display = "none";
 }
@@ -278,7 +313,8 @@ function vote(yes) {
     }
     index++;
     loadImage();
-    repositionWingdings()
+    repositionWingdings();
+    changeText();
 }
 
 
@@ -287,40 +323,84 @@ createWingdings();
 
 
 
-const wordsA = ["earthy", "barefoot", "bold", "beat stomping", "electric", "fearless", "wind","earth","land","mud"];
-const wordsB = ["dirty", "medieval", "dungeon", "rusty", "hidden", "mysterious","sharp","metallic"];
-const wordsC = ["vintage", "quirky", "grandma", "tropical", "jungle", "old","wild","freak"];
+const wordsA = ["You live like a peasant in a tiny little shack with a bunch of tall grass and overgrowth.", 
+    "You romanticize being disconnected.", 
+    "You like being alone, being at peace, living simply. ",
+    "You're not really about actually wanting to become a farmer and churn butter for your meals.",
+     "You're about just feeling peaceful in nature surrounded by pastels and pretty things.", 
+     "You still want a house that's wired and connected to the world.", 
+     "You need knick knacks EVERYWHERE.",
+     "You *Honk* for clown girlies.",
+     "Jester, you hardly know her!",
+     "You like dusty toys and mothballs, as well as the sticky sweet smell of old candy.",
+    "You often wonder do mimes count as clowns?",
+    "You think a mime is a terrible thing to waste!",
+    "You believe in life it is completely up to the clown.",
+    "You just want to reconnect with your 'inner child' "
+];
+
+const wordsB = ["You're giving Freddy Kruger a bit", 
+    "You’d fit in fine with a pair of worn out shoes.", 
+    "You're about not giving a fuck, and not caring what the trend setters think. ",
+     "You're about nothing, but something at the same time.", 
+     "You love any fantasy that has the aesthetics of Early Middle Ages", 
+     "You love when distances become more meaningful.",
+     "You love when combat is more difficult.",
+     "You think there should be fewer technology solutions.",
+    "You want more wilderness, and cool buildings.",
+    "You liked when nature and life itself becomes more dangerous and more impactful.",
+    "You live by 'No guns, no phones, no cars'.",
+];
+
+
+const wordsC = ["Obviously, your hygiene needs to be top-notch.", 
+    "You brush and floss 2x/day, antiperspirant, breath mints/mouthwash, clean feet, frequent brow/facial hair grooming, and excellent skin care focused on hydration and no acne.", 
+    "You are all about feeling fresh, being hydrated, and pulling everything together in an effortless way.", 
+    "You know know none of this is actually effortless.", 
+    "Looking up some content on “everything showers” would be a good place to start for you.", 
+    "You hate when people say 'THE CLEAN GIRL IS SO DISRESPECTFUL!!!!! WE NEED TO DO SOMETHING ABOUT IT!'.",
+    "You would wear full glam leopard and fur to a bar.",
+    "You want to look like someone's ex-wife.",
+"You wish everyone here was running around with hair towards the heavens and the biggest fur coats on.",
+"You don't want to look like Little Red Riding Hood.",
+"There is something fierce in you."
+];
 
 
 function getRandomWords(wordList) {
     let shuffled = wordList.sort(() => Math.random() - 0.5); 
-    return shuffled.slice(0, 4).join(" "); 
+    return shuffled.slice(0, 3).join(" "); 
+}
+
+function getOneRandomWord(wordList) {
+    let shuffledOne = wordList.sort(() => Math.random() - 0.5); 
+    return shuffledOne; 
 }
 
 
 function generateResultSentence(topTag) {
     let words;
     
-    if (topTag === "A") words = getRandomWords(wordsA);
-    else if (topTag === "B") words = getRandomWords(wordsB);
-    else if (topTag === "C") words = getRandomWords(wordsC);
+    if (topTag === "A") words = "You are a Grandma Core Sun with a Clown Core Moon. " + getRandomWords(wordsA);
+    else if (topTag === "B") words = "You are a Goth Grunge Sun with a Medieval Moon. " + getRandomWords(wordsB);
+    else if (topTag === "C") words = "You are a Clean Girl Sun with a Mob Wife Moon. " + getRandomWords(wordsC);
     
-    return `You Are ${words} core.`;
+    return `${words}`;
 }
 
 function generateRejectedSentence() {
     let sortedTags = Object.keys(tagCount).sort((a, b) => tagCount[a] - tagCount[b]);
     let bottomTags = sortedTags.slice(0, 2);
-    let words = bottomTags.map(tag => getRandomWords(tag === "A" ? wordsA : tag === "B" ? wordsB : wordsC)).join(" and ");
-    return `You have hidden ${words}.`;
+    let words = bottomTags.map(tag => getOneRandomWord(tag === "A" ? wordsA : tag === "B" ? wordsB : wordsC)[0]).join(" ");
+    return `${words}.`;
 }
 
 function showResults() {
     forceCSSReload(); 
 
-    document.getElementById("image-container").style.display = "none";
+    document.getElementById("questions").style.display = "none";
     document.getElementById("buttons").style.display = "none";
-
+    document.getElementById("reload").style.display = "block";
     
     setTimeout(() => {
         resultSection.style.display = "block";
@@ -350,6 +430,7 @@ function showResults() {
 
     if (rejections.length > 0) {
         document.getElementById("toggle-rejected").style.display = "block";
+        document.getElementById("reload").style.display = "block";
         rejectedSentence.textContent = generateRejectedSentence();
         startRandomTyping(generateRejectedSentence());
         console.log('heyy');
