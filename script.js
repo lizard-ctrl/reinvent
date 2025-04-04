@@ -215,6 +215,32 @@ const textOptions = [
     "A psychic is looking at your account"
 ];
 
+const goodTextOptions = [
+    "Great choice!",
+    "You're onto something!",
+    "A solid pick!",
+    "You're doing great!",
+    "That was a wise decision!",
+    "Nice selection!",
+    "You have a good eye!",
+    "That fits perfectly!",
+    "Excellent taste!",
+    "You're on a roll!"
+];
+
+const badTextOptions = [
+    "Maybe next time!",
+    "Not quite right?",
+    "You dodged a bullet!",
+    "That was a bold move!",
+    "Interesting rejection!",
+    "Not a fan?",
+    "Could have been worse!",
+    "Probably for the best!",
+    "No regrets?",
+    "Better luck next time!"
+];
+
 function changeText() {
     let randomIndex = Math.floor(Math.random() * textOptions.length);
     document.getElementById("questionText").innerText = textOptions[randomIndex];
@@ -305,12 +331,20 @@ function repositionWingdings() {
 
 
 function vote(yes) {
+    let goodRandomIndex = Math.floor(Math.random() * goodTextOptions.length);
+    let badRandomIndex = Math.floor(Math.random() * badTextOptions.length);
+
     if (yes) {
         selections.push(images[index]);
         tagCount[images[index].tag]++;
+        document.getElementById("gdTxt").innerText = goodTextOptions[goodRandomIndex];
+        document.getElementById("bdTxt").innerText = ""; // Clear bad text
     } else {
         rejections.push(images[index]); 
+        document.getElementById("bdTxt").innerText = badTextOptions[badRandomIndex];
+        document.getElementById("gdTxt").innerText = ""; // Clear good text
     }
+
     index++;
     loadImage();
     repositionWingdings();

@@ -10,12 +10,13 @@
   }
 
 body { 
-    font-family: 'Fantome-Regular'; 
+    font-family: "FontOne";
     background-image: url(imgs/giphy.gif);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #1F1821;
 }
+
 
 #left-div, #right-div {
     z-index: 1000;
@@ -225,6 +226,7 @@ body {
   }
 
 #questions{
+    font-family: 'Fantome-Regular';
     position: absolute;
     top: 5%;
     left: 15%;
@@ -233,9 +235,57 @@ body {
 }
 
 #questionText{
+    font-family: 'Fantome-Regular';
     color: black;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
 }
+
+.girl{
+    top: 5%;
+    position: absolute;
+    border-radius: 15%;
+    border-width: 5px;
+    border-style: dashed;
+    border-color: #5beb37;
+    color: white;
+   
+    width: 20%;
+    height: 10%;
+}
+
+#goodText{
+left: 5%;
+}
+
+#badText{
+    right:5%;
+}
+
+#girl{
+    
+    width: 30%;
+    height: 80%;
+position: absolute;
+bottom: 80%;
+right: 5%;
+}
+
+#girlImg{
+
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    height: 300%;
+}
+
+#girlImg2{
+
+    position: absolute;
+    top: 10%;
+    right: 40%;
+    height: 300%;
+}
+
 
 #image-container {
     position: absolute;
