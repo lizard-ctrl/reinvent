@@ -17,8 +17,9 @@ const firstHalfSentences = [
     "How to",
     "100 Mind Blowing Ideas to",
     "The Sexy Guide to",
-    "Top 5 Destinations You Must Be",
-    "7 Secrets of",
+    "Top 5 Destinations You Must be",
+    "Top 100 Places to",
+    "7 Secrets to",
     "1,000,000 Secrets to",
     "A Beginner’s Guide to"
 ];
@@ -216,29 +217,32 @@ const textOptions = [
 ];
 
 const goodTextOptions = [
-    "Great choice!",
-    "You're onto something!",
-    "A solid pick!",
-    "You're doing great!",
-    "That was a wise decision!",
-    "Nice selection!",
-    "You have a good eye!",
-    "That fits perfectly!",
-    "Excellent taste!",
+    "Slay Diva!",
+    "That was Amaze",
+    "You have an eye for this Diva",
+    "You're a superstar girl!",
+    "Everyone loves your choices Diva!",
+    "Superstar!",
+    "You're so smart Queen!",
+    "Go Superstar!",
+    "Yessss Girl!",
     "You're on a roll!"
 ];
 
 const badTextOptions = [
-    "Maybe next time!",
-    "Not quite right?",
-    "You dodged a bullet!",
-    "That was a bold move!",
+    "Oops, not this one!",
+    "Agree with you Diva",
+    "Smart move Superstar",
+    "Good thinking Girl",
     "Interesting rejection!",
-    "Not a fan?",
-    "Could have been worse!",
-    "Probably for the best!",
-    "No regrets?",
-    "Better luck next time!"
+    "Good work Queen",
+    "Ewww, right?",
+    "Yikes, that wasn't working Diva",
+    "No regrets Superstar",
+    "Yuck Girl",
+    "Get Rid of it Girl",
+    "To the Trash it goes", 
+    "Gone forever Girl"
 ];
 
 function changeText() {
@@ -434,6 +438,8 @@ function showResults() {
 
     document.getElementById("questions").style.display = "none";
     document.getElementById("buttons").style.display = "none";
+    document.getElementById("goodText").style.display = "none";
+    document.getElementById("badText").style.display = "none";
     document.getElementById("reload").style.display = "block";
     
     setTimeout(() => {

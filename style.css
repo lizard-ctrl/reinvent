@@ -10,7 +10,7 @@
   }
 
 body { 
-    font-family: "FontOne";
+   
     background-image: url(imgs/giphy.gif);
     background-size: cover;
     background-repeat: no-repeat;
@@ -83,7 +83,7 @@ body {
 #info{
    
     position: absolute;
-    font-family: "FontOne";
+   
     top: 5%;
     left: 20%;
     width: 60%;
@@ -149,14 +149,14 @@ body {
 
 
 #start{
-    font-family: "FontOne";
+   
     animation: fadeColor 10s infinite; /* 3 seconds to complete one cycle, infinitely repeating */
   transition: color 0.5s ease;
   transition: font-size 0.5s ease; /* Base text color */
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
     outline: none;
     background-color: none;
-    font-size: 400%;
+    font-size: 300%;
     position: relative;
     top: 10%;
    
@@ -247,8 +247,9 @@ body {
     border-width: 5px;
     border-style: dashed;
     border-color: #5beb37;
-    color: white;
-   
+    font-size: 150%;
+    color: black;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(8, 189, 255), 0 0 20px rgb(8, 189, 255), 0 0 25px rgb(8, 189, 255);
     width: 20%;
     height: 10%;
 }
@@ -340,14 +341,14 @@ button {
 }
 
 .result-box p:last-child {
-    top: 25%;
+    top: -25%;
     z-index: 1000;
     font-size: 300%;
     position: absolute;
-    
+    padding: 20%;
     font-weight: bold;
     color: black; /* Base text color */
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f09, 0 0 20px #f09, 0 0 25px #f09;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px rgb(8, 189, 255), 0 0 20px rgb(8, 189, 255), 0 0 25px rgb(8, 189, 255);
     text-transform: uppercase;
     text-align: center;
     margin-top: 10px;
@@ -374,6 +375,7 @@ button {
 
 
 #result { 
+    width: 50%;
     display: none; 
 }
 
@@ -413,6 +415,8 @@ button {
 
 #toggle-rejected
 {
+    z-index: 2000;
+    font-family: 'Fantome-Regular';
     position: absolute;
     top: 90%;
     right: 5%;
@@ -428,6 +432,7 @@ button {
 
 #reload
 {
+    z-index: 2000;
     position: absolute;
     top: 90%;
     left: 5%;
