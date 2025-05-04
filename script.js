@@ -25,27 +25,47 @@ const firstHalfSentences = [
 ];
 
 const secondHalfSentences = [
-    "Dropping 40 Pants Sizes",
+    "Dropping 400 Pants Sizes",
     "Crying and Doomscrolling",
-    "Get Your Toxic Ex Back",
+    "Getting Your Toxic Ex Back",
     "Achieve the Perfect Instagram",
-    "Get Your 15 Minutes of Fame on Tiktok",
+    "Get Your 15 Seconds of Fame on Tiktok",
     "Facetuning your Friends",
     "Facetuning your Life",
+    "Facetuning your Family",
+    "Hexing your Boss",
+    "Hexing your Landlord",
+    "Curating your Co-op",
+    "Curating your Friends",
+    "Curating your Family",
+    "Curating your Partner",
+    "Fixing your Partner",
+    "Going outside less",
+
     "Curating your Life",
     "Spending more time Online",
+    "Always being Online",
+    "Maxxing out your Screentime",
+    "Doomscrolling Reddit",
+    "Doomscrolling Wikipedia",
     "Increasing your Screentime",
     "Decoding his Instagram",
     "Decoding his Spotify Listens",
-    "Analyze your ex's Instagram",
-    "Tweeting your way to the top",
-    "Being Offputting on Tinder",
+    "Analyzing your ex's Instagram",
+    "Be Offputting on Tinder",
+    "Be Concerning on Instagram",
+    "Be Concerning on Twitter",
+    "Scaring your Friends Online",
+    "Scaring your Family Online",
+    "Scaring your Co-workers Online",
     "Being Mysterious and Weird on Hinge",
     "Achieving Cottagecore",
     "Achieving Dark Academia",
     "Achieving CoreCore",
     "Understanding CoreCore",
-    "Keep up with Every Trend!!"
+    "Keeping up with Every Trend!!",
+    "Knowing every 5 second Trend",
+    "Buying every Trendy Item"
 ];
 
 function generateRandomSentences() {
@@ -149,6 +169,7 @@ const images = [
     { src: "imgs/a11.png", tag: "A" },
     { src: "imgs/a12.png", tag: "A" },
     { src: "imgs/a13.png", tag: "A" },
+    { src: "imgs/a14.png", tag: "A" },
     { src: "imgs/b1.png", tag: "B" },
     { src: "imgs/b2.png", tag: "B" },
     { src: "imgs/b3.png", tag: "B" },
@@ -164,7 +185,6 @@ const images = [
     { src: "imgs/b13.png", tag: "B" },
     { src: "imgs/b14.png", tag: "B" },
     { src: "imgs/b15.png", tag: "B" },
-    { src: "imgs/b16.png", tag: "B" },
     { src: "imgs/c1.png", tag: "C" },
     { src: "imgs/c2.png", tag: "C" },
     { src: "imgs/c3.png", tag: "C" },
@@ -178,8 +198,8 @@ const images = [
     { src: "imgs/c11.png", tag: "C" },
     { src: "imgs/c12.png", tag: "C" },
     { src: "imgs/c13.png", tag: "C" },
-    { src: "imgs/c14.png", tag: "C" },
-    { src: "imgs/c15.png", tag: "C" }
+    { src: "imgs/c14.png", tag: "C" }
+   
 
     
 ];
@@ -419,7 +439,7 @@ function getOneRandomWord(wordList) {
 function generateResultSentence(topTag) {
     let words;
     
-    if (topTag === "A") words = "You are a Grandma Core Sun with a Clown Core Moon. " + getRandomWords(wordsA);
+    if (topTag === "A") words = "You are a Cottage Core Sun with a Clown Core Moon. " + getRandomWords(wordsA);
     else if (topTag === "B") words = "You are a Goth Grunge Sun with a Medieval Moon. " + getRandomWords(wordsB);
     else if (topTag === "C") words = "You are a Clean Girl Sun with a Mob Wife Moon. " + getRandomWords(wordsC);
     
